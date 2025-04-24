@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 import ExpertTeam from "../pages/expertTeam";
 import Speciality from "../pages/speciality";
 import From from "../pages/Form";
-import Personalized from "../pages/personalized";
 import Footer from "../pages/footer";
 import FounderLater from "../pages/FounderLater";
+import Personalized from "../pages/personalized";
 
 function About(props) {
   const headlineRef = useRef(null);
