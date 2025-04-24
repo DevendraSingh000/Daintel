@@ -4,8 +4,8 @@ import ExpertTeam from "../pages/expertTeam";
 import Speciality from "../pages/speciality";
 import From from "../pages/Form";
 import FounderLater from "../pages/FounderLater";
-import Personalized from "../pages/personalized";
 import FooterSec from "../pages/FooterSec"
+import PersonalizedSec from "../pages/PersonalizedSec";
 
 function About(props) {
   const headlineRef = useRef(null);
@@ -88,7 +88,7 @@ function About(props) {
         </div>
       </div>
       <FounderLater />
-      <Personalized  />
+      <PersonalizedSec  />
       <ExpertTeam />
       <Speciality/>
       <From />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaTooth } from 'react-icons/fa';
 
-function Personalized() {
+function PersonalizedSec() {
   const data = [
     {
       logo: <FaTooth className='text-purple-500 text-2xl sm:text-3xl md:text-4xl' />,
@@ -79,4 +79,4 @@ function Personalized() {
   );
 }
 
-export default Personalized;
+export default PersonalizedSec;

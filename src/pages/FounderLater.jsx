@@ -1,5 +1,5 @@
 import React from 'react'
-import Personalized from './personalized'
+import Personalized from './PersonalizedSec'
 
 function FounderLater() {
     return (
