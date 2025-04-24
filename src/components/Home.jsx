@@ -1,5 +1,5 @@
 import React from 'react'
-import Reaches from '../pages/reaches'
+
 import Personalized from '../pages/personalized';
 import Speciality from '../pages/speciality';
 import Hero from '../pages/hero';
@@ -11,6 +11,7 @@ import BlogPost from '../pages/BlogPost';
 
 import From from '../pages/Form';
 import Footer from '../pages/footer';
+import Reaches from '../pages/reaches';
 
 function Home() {
   return (
