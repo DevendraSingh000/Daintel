@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 
-const Footer = () => {
+const FooterSec = () => {
   const contactLinks = [
     { label: '+91 9730627087', href: 'tel:+919730627087' },
     { label: 'abc@dentoi.com', href: 'mailto:abc@dentoi.com' },
@@ -88,4 +88,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterSec;

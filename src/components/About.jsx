@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 import ExpertTeam from "../pages/expertTeam";
 import Speciality from "../pages/speciality";
 import From from "../pages/Form";
-import Footer from "../pages/footer";
 import FounderLater from "../pages/FounderLater";
 import Personalized from "../pages/personalized";
+import FooterSec from "../pages/FooterSec"
 
 function About(props) {
   const headlineRef = useRef(null);
@@ -92,7 +92,7 @@ function About(props) {
       <ExpertTeam />
       <Speciality/>
       <From />
-      <Footer />
+      <FooterSec />
       
     </section>
     </>
