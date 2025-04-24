@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import FounderLater from "../pages/FounderLater";
-import Personalized from "../pages/personalized";
 import ExpertTeam from "../pages/expertTeam";
 import Speciality from "../pages/speciality";
 import From from "../pages/Form";
 import Footer from "../pages/footer";
+import Personalized from "../pages/personalized";
 
 function About(props) {
   const headlineRef = useRef(null);
