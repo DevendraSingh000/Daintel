@@ -1,11 +1,18 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import ExpertTeam from "../pages/expertTeam";
-import Speciality from "../pages/speciality";
-import From from "../pages/Form";
-import FounderLater from "../pages/FounderLater";
-import FooterSec from "../pages/FooterSec"
+import FounderLaterSec from "../pages/FounderLaterSec";
 import PersonalizedSec from "../pages/PersonalizedSec";
+import ExpertTeamSec from "../pages/ExpertTeamSec";
+import SpecialitySec from "../pages/SpecialitySec";
+import FormSec from "../pages/FormSec";
+import FooterSec from "../pages/FooterSec";
+// import ExpertTeam from "../pages/expertTeam";
+// import Speciality from "../pages/speciality";
+// import From from "../pages/Form";
+// import FounderLater from "../pages/FounderLaterSec";
+// import FooterSec from "../pages/FooterSec"
+// import PersonalizedSec from "../pages/PersonalizedSec";
+
 
 function About(props) {
   const headlineRef = useRef(null);
@@ -87,11 +94,11 @@ function About(props) {
           </div>
         </div>
       </div>
-      <FounderLater />
+      <FounderLaterSec />
       <PersonalizedSec  />
-      <ExpertTeam />
-      <Speciality/>
-      <From />
+      <ExpertTeamSec />
+      <SpecialitySec/>
+      <FormSec/>
       <FooterSec />
       
     </section>

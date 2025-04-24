@@ -1,6 +1,6 @@
 import React from 'react'
 
-function From() {
+function FormSec() {
   return (
     <>
       <section className='bg-[#f0f0f0]  px-4 sm:px-6 lg:px-12'>
@@ -51,7 +51,7 @@ function From() {
 
             <button
               type="submit"
-              className="w-full py-3 rounded-full text-white font-semibold bg-gradient-to-r from-cyan-400 to-green-400 shadow-lg hover:shadow-xl transition-all">
+              className="w-full py-3 rounded-full text-white font-semibold bg-gradient-to-r FormSec-cyan-400 to-green-400 shadow-lg hover:shadow-xl transition-all">
               Book Consultation
             </button>
           </form>
@@ -62,4 +62,4 @@ function From() {
   )
 }
 
-export default From
+export default FormSec

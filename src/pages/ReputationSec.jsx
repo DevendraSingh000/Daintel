@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaTooth } from 'react-icons/fa';
 
-function Reputation() {
+function ReputationSec() {
   const cards = [
     {
       logo: <FaTooth className="text-purple-500 text-2xl sm:text-3xl md:text-4xl" />,
@@ -31,7 +31,7 @@ function Reputation() {
         <button className="shadow-lg mb-4 shadow-[#89f2f4]/90 px-5 py-1.5 text-sm sm:text-base text-[#6E6E6E] bg-white rounded-2xl">
           Since
         </button>
-        <h2 className="text-3xl font-semibold">Reputation Since 2017</h2>
+        <h2 className="text-3xl font-semibold">ReputationSec Since 2017</h2>
         <p className="text-gray-600 mt-2">
           Delivering trusted, quality dental care with a reputation for excellence since 2017.
         </p>
@@ -82,4 +82,4 @@ function Reputation() {
   );
 }
 
-export default Reputation;
+export default ReputationSec;

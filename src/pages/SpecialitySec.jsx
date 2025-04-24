@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Speciality() {
+function SpecialitySec() {
   return (
     <>
       <section className="bg-[#f0f0f0] py-12 px-4 sm:px-6 md:px-12 lg:px-20">
@@ -9,7 +9,7 @@ function Speciality() {
           {/* Left Content */}
           <div className="flex-1 max-w-xl">
             <button className="px-4 py-1 rounded-full bg-white text-sm text-[#6E6E6E] shadow-md shadow-cyan-300/50 mb-4">
-              Speciality
+              SpecialitySec
             </button>
 
             <h2 className="text-3xl sm:text-4xl w-[400px] font-bold text-black mb-6">
@@ -59,4 +59,4 @@ function Speciality() {
   )
 }
 
-export default Speciality
+export default SpecialitySec

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ExpertTeam() {
+function ExpertTeamSec() {
   const experts = [
     {
       path: "https://framerusercontent.com/images/0bGMRBJ2GDTP9hesxRLdYIseZ0.png",
@@ -68,4 +68,4 @@ function ExpertTeam() {
   )
 }
 
-export default ExpertTeam
+export default ExpertTeamSec

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-function Hero() {
+function HeroSec() {
 
   const headlineRef = useRef(null);
 
@@ -120,4 +120,4 @@ function Hero() {
   )
 }
 
-export default Hero
+export default HeroSec

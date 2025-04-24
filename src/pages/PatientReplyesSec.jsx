@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaQuoteRight } from "react-icons/fa";
 
-const PatientReplies = () => {
+const PatientReplyesSec = () => {
   const cards = [
     {
       imgPath: "https://randomuser.me/api/portraits/women/65.jpg",
@@ -74,4 +74,4 @@ const PatientReplies = () => {
   );
 };
 
-export default PatientReplies;
+export default PatientReplyesSec;

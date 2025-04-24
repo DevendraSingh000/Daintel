@@ -1,7 +1,7 @@
 import React from 'react'
 import Personalized from './PersonalizedSec'
 
-function FounderLater() {
+function FounderLaterSec() {
     return (
         <>
             <section className='h-full w-screen bg-[#F0F0F0] flex items-center justify-center'>
@@ -37,4 +37,4 @@ function FounderLater() {
     )
 }
 
-export default FounderLater
+export default FounderLaterSec

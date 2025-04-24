@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Relife() {
+function RelifeSec() {
     return (
         <>
             <section className="relative w-full">
@@ -41,4 +41,4 @@ function Relife() {
     )
 }
 
-export default Relife
+export default RelifeSec

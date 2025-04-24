@@ -3,7 +3,6 @@ import About from './components/About';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Service from './components/Service';
-import Blog from './components/Blog';
 import Contect from './components/Contect';
 import { BrowserRouter as Router, Routes, Route, createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -20,10 +19,6 @@ function App() {
     {
       path:'/Services',
       element:<><Navbar /><Service /></>
-    },
-    {
-      path:'/Blog',
-      element:<><Navbar /><Blog /></>
     },
     {
       path:'/Contect',

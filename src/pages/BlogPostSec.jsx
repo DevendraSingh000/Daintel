@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BlogPost() {
+function BlogPostSec() {
   const card = [
     {
       path: 'https://framerusercontent.com/images/esWiYSci0SU3dEQhAdzPFeThM0.webp',
@@ -57,4 +57,4 @@ function BlogPost() {
   );
 }
 
-export default BlogPost;
+export default BlogPostSec;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Reaches() {
+function ReachesSec() {
   return (
     <>
       <section className='bg-[#F0F0F0]'>
@@ -29,4 +29,4 @@ function Reaches() {
   )
 }
 
-export default Reaches
+export default ReachesSec
