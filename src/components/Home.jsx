@@ -1,6 +1,4 @@
 import React from 'react'
-
-import Personalized from '../pages/personalized';
 import Speciality from '../pages/speciality';
 import Hero from '../pages/hero';
 import ExpertTeam from '../pages/expertTeam';
@@ -8,10 +6,10 @@ import Relife from '../pages/relife';
 import PatientReplyes from '../pages/PatientReplyes';
 import Reputation from '../pages/reputation';
 import BlogPost from '../pages/BlogPost';
-
 import From from '../pages/Form';
 import Footer from '../pages/footer';
 import Reaches from '../pages/reaches';
+import PersonalizedSec from '../pages/PersonalizedSec';
 
 function Home() {
   return (
@@ -26,7 +24,7 @@ function Home() {
         </div>
         <Hero />
         <Reaches />
-        <Personalized />
+        <PersonalizedSec />
         <Speciality />
         <ExpertTeam />
       </section>
