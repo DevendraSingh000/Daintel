@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { motion, useInView } from 'framer-motion';
 
 const FooterSec = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { threshold: 0.2 });
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
   const contactLinks = [
     { label: '+91 9730627087', href: 'tel:+919730627087' },
     { label: 'abc@dentoi.com', href: 'mailto:abc@dentoi.com' },
@@ -12,7 +25,13 @@ const FooterSec = () => {
 
   return (
     <section className="bg-[#f0f0f0] pt-10 w-full">
-      <footer className="bg-gradient-to-b from-[#d6fdfd] to-white py-10 px-5 sm:px-10 md:px-16 lg:px-28 xl:px-40 w-full text-[#222]">
+      <motion.footer
+        ref={sectionRef}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        variants={fadeUp}
+        className="bg-gradient-to-b from-[#d6fdfd] to-white py-10 px-5 sm:px-10 md:px-16 lg:px-28 xl:px-40 w-full text-[#222]"
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo + About */}
           <div>
@@ -76,17 +95,22 @@ const FooterSec = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </motion.footer>
 
       {/* Bottom Bar */}
-      <div className="border-t-2 border-gray-300">
+      <motion.div
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        variants={fadeUp}
+        className="border-t-2 border-gray-300"
+      >
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 sm:gap-0 px-5 sm:px-10 md:px-16 lg:px-28 xl:px-40 py-5">
           <h1 className="text-sm sm:text-base text-center">All rights reserved © DENTOI</h1>
           <p className="text-sm sm:text-base text-center">
             Created by <span className="text-[#4ad6db] font-bold">DEVENDRA SINGH</span>
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

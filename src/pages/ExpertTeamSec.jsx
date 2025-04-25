@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 function ExpertTeamSec() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, threshold: 0.2 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.25,
+        duration: 0.5,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 80,
+        damping: 15,
+      },
+    },
+  };
+
   const experts = [
     {
       path: "https://framerusercontent.com/images/0bGMRBJ2GDTP9hesxRLdYIseZ0.png",
@@ -22,29 +51,50 @@ function ExpertTeamSec() {
       name: "Julia Matics",
       work: "Implant Specialist",
     },
-  ]
+  ];
 
   return (
-    <section className="bg-[#f0f0f0] py-12 px-4 sm:px-6 md:px-12 lg:px-20">
+    <section ref={sectionRef} className="bg-[#f0f0f0] py-12 px-4 sm:px-6 md:px-12 lg:px-20">
       {/* Header Section */}
-      <div className="max-w-3xl mx-auto mb-10 sm:mb-12 text-center">
-        <button className="shadow-lg shadow-[#89f2f4]/90 px-5 py-1.5 text-sm sm:text-base text-[#6E6E6E] bg-white rounded-2xl">
+      <motion.div
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        variants={containerVariants}
+        className="max-w-3xl mx-auto mb-10 sm:mb-12 text-center"
+      >
+        <motion.button
+          variants={cardVariants}
+          className="shadow-lg shadow-[#89f2f4]/90 px-5 py-1.5 text-sm sm:text-base text-[#6E6E6E] bg-white rounded-2xl"
+        >
           Team
-        </button>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-4 leading-snug">
+        </motion.button>
+        <motion.h1
+          variants={cardVariants}
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-4 leading-snug"
+        >
           Meet Our Expert Team
-        </h1>
-        <p className="text-sm sm:text-base md:text-lg text-[#6E6E6E] mt-2 mx-auto max-w-xs sm:max-w-md">
+        </motion.h1>
+        <motion.p
+          variants={cardVariants}
+          className="text-sm sm:text-base md:text-lg text-[#6E6E6E] mt-2 mx-auto max-w-xs sm:max-w-md"
+        >
           Experienced dental professionals dedicated to your oral health and comfort.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Experts Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+      >
         {experts.map((item, i) => (
-          <div
+          <motion.div
             key={i}
-            className="bg-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg shadow-black/10 flex flex-col sm:flex-row items-center gap-4 transition-transform hover:-translate-y-1 duration-300"
+            variants={cardVariants}
+            whileHover={{ scale: 1.03 }}
+            className="bg-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg shadow-black/10 flex flex-col sm:flex-row items-center gap-4 transition-transform duration-300"
           >
             {/* Image Container */}
             <div className="w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-2xl bg-white shadow-md shadow-black/10 overflow-hidden flex items-center justify-center">
@@ -56,7 +106,7 @@ function ExpertTeamSec() {
             </div>
 
             {/* Name and Work Description */}
-            <div className="text-center">
+            <div className="text-center sm:text-left">
               <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800">
                 {item.name}
               </h2>
@@ -64,11 +114,11 @@ function ExpertTeamSec() {
                 {item.work}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
-  )
+  );
 }
 
-export default ExpertTeamSec
+export default ExpertTeamSec;

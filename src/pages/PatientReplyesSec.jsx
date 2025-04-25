@@ -1,13 +1,39 @@
-import React from 'react';
-import { FaQuoteRight } from "react-icons/fa";
+import React, { useRef } from 'react';
+import { FaQuoteRight } from 'react-icons/fa';
+import { motion, useInView } from 'framer-motion';
 
 const PatientReplyesSec = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, threshold: 0.2 });
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const fadeUpVariant = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 80,
+        damping: 15,
+      },
+    },
+  };
+
   const cards = [
     {
       imgPath: "https://randomuser.me/api/portraits/women/65.jpg",
       name: "Emily T.",
       post: "Engineer",
-      decs: "I can’t thank Dr. Jonny enough for my new smile! The attention to detail and personalized care made my experience wonderful. I highly recommend their services.",
+      decs: "I cant thank Dr. Jonny enough for my new smile! The attention to detail and personalized care made my experience wonderful. I highly recommend their services.",
     },
     {
       imgPath: "https://randomuser.me/api/portraits/men/64.jpg",
@@ -25,34 +51,59 @@ const PatientReplyesSec = () => {
       imgPath: "https://randomuser.me/api/portraits/men/67.jpg",
       name: "Salin K.",
       post: "Singer",
-      decs: "The team at this clinic is top-notch. They’ve been able to restore my teeth with such precision, care, and attention to detail; I couldn’t be happier with the results and the overall experience!",
+      decs: "The team at this clinic is top-notch. They have been able to restore my teeth with such precision, care, and attention to detail; I couldn’t be happier with the results and the overall experience!",
     },
   ];
 
   return (
-    <section className="bg-[#f0f0f0] py-16 px-4 sm:px-6 lg:px-12">
-      <div className="text-center mb-12 ">
-      <button className='shadow-lg mb-4 shadow-[#89f2f4]/90 px-5 py-1.5 text-sm sm:text-base text-[#6E6E6E] bg-white rounded-2xl'>
-            Team
-          </button>
-        <h2 className="text-3xl font-semibold">What Our Patients Say</h2>
-        <p className="text-gray-600 mt-2">Real words from real people.</p>
-      </div>
+    <section
+      ref={sectionRef}
+      className="bg-[#f0f0f0] py-16 px-4 sm:px-6 lg:px-12"
+    >
+      <motion.div
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        variants={fadeUpVariant}
+        className="text-center mb-12"
+      >
+        <motion.button
+          variants={fadeUpVariant}
+          className="shadow-lg mb-4 shadow-[#89f2f4]/90 px-5 py-1.5 text-sm sm:text-base text-[#6E6E6E] bg-white rounded-2xl"
+        >
+          Team
+        </motion.button>
+        <motion.h2
+          variants={fadeUpVariant}
+          className="text-3xl font-semibold"
+        >
+          What Our Patients Say
+        </motion.h2>
+        <motion.p
+          variants={fadeUpVariant}
+          className="text-gray-600 mt-2"
+        >
+          Real words from real people.
+        </motion.p>
+      </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Cards */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+      >
         {cards.map((card, i) => (
-          <div
+          <motion.div
             key={i}
+            variants={fadeUpVariant}
             className={`relative bg-white rounded-3xl shadow-md p-6 flex flex-col gap-4 transition-transform duration-300 ${
               i % 2 === 0 ? 'rotate-[-3deg]' : 'rotate-[3deg]'
             }`}
           >
-            {/* Quotation Icon */}
             <div className="absolute top-4 right-4 text-indigo-200 text-3xl">
               <FaQuoteRight />
             </div>
-
-            {/* Profile Image and Info */}
             <div className="flex items-center gap-4">
               <img
                 src={card.imgPath}
@@ -64,12 +115,10 @@ const PatientReplyesSec = () => {
                 <p className="text-gray-500 text-sm">{card.post}</p>
               </div>
             </div>
-
-            {/* Description */}
             <p className="text-sm text-gray-700 leading-relaxed">{card.decs}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

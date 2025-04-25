@@ -1,5 +1,4 @@
 import React from 'react'
-import FormSec from '../pages/FormSec'
 import FooterSec from '../pages/FooterSec'
 import FormForContect from '../pages/FormForContect'
 

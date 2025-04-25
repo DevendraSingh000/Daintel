@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FaTooth } from 'react-icons/fa';
+import { easeOut, motion, useInView } from 'framer-motion';
 
 function PersonalizedSec() {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: false, threshold: 0.2 });
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren : 0.3,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {opacity: 0, y: 100},
+    visible: {opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut'}},
+    exit: {opacity: 0, y: -100, transition: { duration: 0.4 } },
+  };
+
   const data = [
     {
       logo: <FaTooth className='text-purple-500 text-2xl sm:text-3xl md:text-4xl' />,
@@ -34,11 +53,15 @@ function PersonalizedSec() {
       desc: "Immediate relief for unexpected dental problems like toothaches, broken teeth, or injuries."
     },
   ];
-  let heading ="Your Dental Care Solutions";
+  let heading = "Your Dental Care Solutions";
   return (
     <section className='bg-[#f0f0f0] py-12 px-4 sm:px-6 md:px-12 lg:px-20'>
       {/* Header Section */}
-      <div className='text-center max-w-3xl mx-auto mb-10 sm:mb-12'>
+      <motion.div 
+      variants={cardVariants} 
+      initial="hidden" 
+      animate={isInView ? 'visible' : 'hidden'} 
+      className='text-center max-w-3xl mx-auto mb-10 sm:mb-12'>
         <button className='shadow-lg shadow-[#89f2f4]/90 px-5 py-1.5 text-sm sm:text-base text-[#6E6E6E] bg-white rounded-2xl'>
           Services
         </button>
@@ -48,12 +71,16 @@ function PersonalizedSec() {
         <p className='text-sm sm:text-base md:text-lg text-[#6E6E6E] mt-2'>
           Comprehensive dental care tailored to keep your smile healthy and bright.
         </p>
-      </div>
+      </motion.div>
 
       {/* Card Section */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2 sm:px-4'>
+      <motion.div ref={containerRef}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2 sm:px-4'>
         {data.map((item, i) => (
-          <div
+          <motion.div
+          variants={cardVariants}
             key={i}
             className='bg-white rounded-3xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 shadow-lg shadow-black/10 flex flex-col items-start gap-3 sm:gap-4 transition-transform hover:-translate-y-1 duration-300 mx-2 sm:mx-4 lg:mx-6'
           >
@@ -71,10 +98,10 @@ function PersonalizedSec() {
             <p className='text-sm sm:text-base text-[#6E6E6E] leading-relaxed'>
               {item.desc}
             </p>
-          </div>
+          </motion.div>
 
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

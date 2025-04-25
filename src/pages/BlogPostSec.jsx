@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 function BlogPostSec() {
   const card = [
@@ -19,8 +20,28 @@ function BlogPostSec() {
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { threshold: 0.3 });
+
+  const slideFromRight = {
+    hidden: { x: '100vw', opacity: 0 },
+    visible: (i) => ({
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.2,
+        type: 'spring',
+        stiffness: 80,
+        damping: 20,
+      },
+    }),
+  };
+
   return (
-    <section className="bg-[#f0f0f0] py-16 px-4 sm:px-6 lg:px-12">
+    <section
+      ref={ref}
+      className="bg-[#f0f0f0] py-16 px-4 sm:px-6 lg:px-12 overflow-hidden"
+    >
       {/* Header */}
       <div className="text-center mb-12">
         <div className="flex justify-center">
@@ -38,7 +59,14 @@ function BlogPostSec() {
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {card.map((item, i) => (
-          <div key={i} className="rounded-xl overflow-hidden group shadow-2xl bg-white transition-transform duration-300 hover:scale-[1.03]">
+          <motion.div
+            key={i}
+            custom={i}
+            variants={slideFromRight}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="rounded-xl overflow-hidden group shadow-2xl bg-white transition-transform duration-300 hover:scale-[1.03]"
+          >
             <div className="h-60 sm:h-72 md:h-64 lg:h-72">
               <img
                 src={item.path}
@@ -50,7 +78,7 @@ function BlogPostSec() {
               <h3 className="text-lg font-semibold text-black">{item.heading}</h3>
               <p className="text-sm text-gray-600 mt-1">{item.date}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
