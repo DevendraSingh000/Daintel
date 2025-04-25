@@ -11,13 +11,13 @@ const FooterSec = () => {
   const quickLinks = ['About', 'Services', 'Privacy Policy', 'Cookie Policy'];
 
   return (
-    <section className="bg-[#f0f0f0] w-full sm:pt-20">
-      <footer className="bg-gradient-to-b from-[#d6fdfd] to-white py-10 px-40  w-screen  text-[#222]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+    <section className="bg-[#f0f0f0] pt-10 w-full">
+      <footer className="bg-gradient-to-b from-[#d6fdfd] to-white py-10 px-5 sm:px-10 md:px-16 lg:px-28 xl:px-40 w-full text-[#222]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo + About */}
           <div>
-            <h1 className="text-3xl font-extrabold">DENTOI</h1>
-            <p className="text-sm mt-3 max-w-sm">
+            <h1 className="text-2xl md:text-3xl font-extrabold">DENTOI</h1>
+            <p className="text-sm mt-3 max-w-sm text-[#444]">
               Dentoi Clinic offers exceptional dental care with personalized treatments for healthy, beautiful smiles.
             </p>
           </div>
@@ -77,13 +77,16 @@ const FooterSec = () => {
           </div>
         </div>
       </footer>
-      <div className='flex items-center justify-center border-t-2'>
-        <div className='h-[80px] flex items-center justify-between w-[80%] p-10 '>
-          <h1 className='text-lg'>All rights reserve @Dentoi</h1>
-          <p className='text-lg'>Created by <span className='text-[#4ad6db] font-bold'>DEVENDRA SINGH</span></p>
+
+      {/* Bottom Bar */}
+      <div className="border-t-2 border-gray-300">
+        <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 sm:gap-0 px-5 sm:px-10 md:px-16 lg:px-28 xl:px-40 py-5">
+          <h1 className="text-sm sm:text-base text-center">All rights reserved © DENTOI</h1>
+          <p className="text-sm sm:text-base text-center">
+            Created by <span className="text-[#4ad6db] font-bold">DEVENDRA SINGH</span>
+          </p>
         </div>
       </div>
-
     </section>
   );
 };

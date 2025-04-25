@@ -3,7 +3,7 @@ import React from 'react'
 function FormSec() {
   return (
     <>
-      <section className='bg-[#f0f0f0]  px-4 sm:px-6 lg:px-12'>
+      <section className='bg-[#f0f0f0] pt-10 px-4 sm:px-6 lg:px-12'>
         <div className="flex flex-col pb-10 md:flex-row bg-white shadow-xl rounded-3xl p-6 md:p-10 max-w-6xl mx-auto">
           {/* Left Section */}
           <div className="flex-1 mb-10 md:mb-0">
@@ -56,7 +56,7 @@ function FormSec() {
             </button>
           </form>
         </div>
-
+        
       </section>
     </>
   )
