@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiPhoneCall } from "react-icons/fi";
 import { RiMenu2Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -11,22 +11,26 @@ function Navbar() {
     { path: "/", name: "Home" },
     { path: "/about", name: "About" },
     { path: "/services", name: "Services" },
-    { path: "/Contect", name: "Contect" },
+    { path: "/contect", name: "Contact" },
   ];
+
+  useEffect(() => {
+    document.body.style.overflow = isActive ? "hidden" : "auto";
+  }, [isActive]);
 
   return (
     <>
       {/* Navbar Container */}
-      <div className="navbarMain fixed top-0 left-0 right-0 z-50 pt-3 sm:pt-8 px-6 sm:px-16 h-16 sm:h-24">
-        <div className="shadow-md shadow-black/40 bg-white h-full rounded-2xl sm:mr-12 mr-6">
+      <div className="navbarMain w-full fixed top-0 left-0 right-0 z-50 pt-3 sm:pt-6 px-4 sm:px-16 h-16 sm:h-24 transition-all duration-300">
+        <div className="shadow-md shadow-black/40 bg-white h-full rounded-2xl">
           <nav className="flex justify-between items-center h-full px-4 sm:px-6">
             {/* Logo */}
-            <a className="text-black font-sans font-bold tracking-widest text-xl sm:text-2xl">
+            <a href="#" className="text-black font-sans font-bold tracking-widest text-xl sm:text-2xl">
               DENTOI
             </a>
 
             {/* Desktop Nav Links */}
-            <ul className="hidden sm:flex gap-4 lg:gap-6">
+            <ul className="hidden sm:flex gap-4 lg:gap-6 items-center">
               {nav.map((item) => (
                 <li key={item.path}>
                   <NavLink
@@ -41,52 +45,59 @@ function Navbar() {
                   </NavLink>
                 </li>
               ))}
+              {/* Desktop Book Consultation Button */}
+              <li>
+                <NavLink
+                  to="/contect"
+                  className="flex items-center gap-2 text-white px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-400 shadow-lg relative overflow-hidden"
+                >
+                  <span className="absolute inset-0 bg-white/10 rounded-xl pointer-events-none"></span>
+                  <span className="relative z-10 text-sm sm:text-base">Book Consultation</span>
+                </NavLink>
+              </li>
             </ul>
 
-            {/* Buttons & Mobile Toggle */}
-            <div className="flex items-center gap-3">
-              <button className="hidden md:flex items-center gap-2 text-white px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-400 shadow-lg shadow-black/40 relative overflow-hidden">
-                <span className="absolute inset-0 bg-white/10 rounded-xl pointer-events-none"></span>
-                <span className="relative z-10 text-sm sm:text-base">Book Consultation</span>
-              </button>
-
-              {/* Mobile Menu Toggle Button */}
-              <button className="sm:hidden text-2xl text-black" onClick={() => setIsActive(!isActive)}>
-                {isActive ? <IoMdClose /> : <RiMenu2Fill />}
-              </button>
-            </div>
+            {/* Mobile Menu Toggle */}
+            <button className="sm:hidden text-2xl text-black" onClick={() => setIsActive(!isActive)}>
+              {isActive ? <IoMdClose /> : <RiMenu2Fill />}
+            </button>
           </nav>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {isActive && (
-        <div className="fixed top-20 left-0 right-0 z-40 bg-white px-6 py-4 shadow-md sm:hidden rounded-b-2xl transition-all duration-300">
-          <ul className="flex flex-col items-center gap-4">
+      {/* Mobile Menu */}
+      <div className={`fixed top-0 left-0 w-full h-screen z-40 bg-white transition-transform duration-300 sm:hidden ${isActive ? "translate-y-0" : "-translate-y-full"}`}>
+        <div className="px-6 pt-24 pb-6">
+          <ul className="flex flex-col items-center gap-6">
             {nav.map((item) => (
               <li key={item.path}>
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
                     isActive
-                      ? "block text-base font-semibold border-b-2 border-cyan-400 pb-1 text-center"
-                      : "block text-base hover:text-cyan-500 text-center"
+                      ? "text-lg font-semibold border-b-2 border-cyan-400 pb-1"
+                      : "text-lg hover:text-cyan-500"
                   }
-                  onClick={() => setIsActive(false)} // close menu after click
+                  onClick={() => setIsActive(false)}
                 >
                   {item.name}
                 </NavLink>
               </li>
             ))}
-            <li className="w-full flex justify-center">
-              <button className="mt-2 text-white px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-400 shadow-md">
+
+            {/* Mobile Book Consultation Button */}
+            <li>
+              <NavLink
+                to="/contect"
+                onClick={() => setIsActive(false)}
+                className="mt-2 text-white px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-400 shadow-md flex justify-center"
+              >
                 Book Consultation
-              </button>
+              </NavLink>
             </li>
           </ul>
         </div>
-      )}
-
+      </div>
     </>
   );
 }
