@@ -16,7 +16,7 @@ const FooterSec = () => {
   };
 
   const contactLinks = [
-    { label: '+91 9730627087', href: 'tel:+919730627087' },
+    { label: '+91 8764675841', href: 'tel:+919730627087' },
     { label: 'abc@dentoi.com', href: 'mailto:abc@dentoi.com' },
     { label: 'Write to us', href: '#' },
   ];
@@ -107,7 +107,7 @@ const FooterSec = () => {
         <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2 sm:gap-0 px-5 sm:px-10 md:px-16 lg:px-28 xl:px-40 py-5">
           <h1 className="text-sm sm:text-base text-center">All rights reserved © DENTOI</h1>
           <p className="text-sm sm:text-base text-center">
-            Created by <span className="text-[#4ad6db] font-bold">DEVENDRA SINGH</span>
+            Created by <span className="text-[#4ad6db] font-bold">Primewebdev</span>
           </p>
         </div>
       </motion.div>
