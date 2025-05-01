@@ -15,7 +15,7 @@ import FooterSec from '../pages/FooterSec';
 function Home() {
   return (
     <>
-      <section className='bg-[#F0F0F0]'>
+      <section className='bg-[#F0F0F0]  overflow-hidden'>
         <div className="fixed top-0 left-0 w-full h-full -z-50">
           <img
             className="w-full h-full object-cover"
