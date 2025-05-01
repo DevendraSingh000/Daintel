@@ -16,7 +16,7 @@ const FooterSec = () => {
   };
 
   const contactLinks = [
-    { label: '+91 8764675841', href: 'tel:+919730627087' },
+    { label: '+91 8764675841', href: 'tel:+918764675841' },
     { label: 'abc@dentoi.com', href: 'mailto:abc@dentoi.com' },
     { label: 'Write to us', href: '#' },
   ];
